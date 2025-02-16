@@ -1,42 +1,58 @@
-let products = [];
+const apiURL = 'http://localhost:3000/products';
 
-document.getElementById("productForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    
-    let name = document.getElementById("name").value;
-    let description = document.getElementById("description").value;
-    let price = parseFloat(document.getElementById("price").value);
-    let available = document.getElementById("available").value;
-    
-    products.push({ name, description, price, available });
-    products.sort((a, b) => a.price - b.price);
-    
-    document.getElementById("productForm").reset();
-    showList();
-});
+// Cadastro de Produto
+if (document.getElementById("productForm")) {
+    document.getElementById("productForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        let name = document.getElementById("name").value;
+        let description = document.getElementById("description").value;
+        let price = parseFloat(document.getElementById("price").value);
+        
+        const newProduct = { name, description, price };
 
-function showForm() {
-    document.getElementById("formContainer").style.display = "block";
-    document.getElementById("listContainer").style.display = "none";
-}
-
-function showList() {
-    let productList = document.getElementById("productList");
-    productList.innerHTML = "";
-    
-    products.forEach(product => {
-        let row = `
-                <tr>
-                    <td>${product.name}</td>
-                    <td>${product.description}</td> 
-                    <td>${product.price.toFixed(2)}</td>
-                    
-                </tr>`;
-        productList.innerHTML += row;
+        // POST para adicionar um novo produto
+        fetch(apiURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newProduct)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Produto adicionado:', data);
+            document.getElementById("productForm").reset();
+            // Redirecionar para a página de lista após o cadastro
+            window.location.href = "lista.html";
+        })
+        .catch(error => console.error('Erro ao adicionar produto:', error));
     });
-    
-    document.getElementById("formContainer").style.display = "none";
-    document.getElementById("listContainer").style.display = "block";
 }
 
-showForm();
+// Listagem de Produtos
+if (document.getElementById("productList")) {
+    function fetchProducts() {
+        fetch(apiURL)
+            .then(response => response.json())
+            .then(data => {
+                // Ordena os produtos do menor para o maior preço
+                data.sort((a, b) => a.price - b.price);
+
+                const productList = document.getElementById("productList");
+                productList.innerHTML = "";
+                
+                data.forEach(product => {
+                    let row = `
+                        <tr>
+                            <td>${product.name}</td>
+                            <td>${product.description}</td>
+                            <td>R$ ${product.price.toFixed(2)}</td>
+                        </tr>`;
+                    productList.innerHTML += row;
+                });
+            })
+            .catch(error => console.error('Erro ao buscar produtos:', error));
+    }
+    fetchProducts();
+}

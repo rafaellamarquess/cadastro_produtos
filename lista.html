@@ -43,29 +43,20 @@
             <p>Encontre os melhores jogos e consoles aqui.</p>
         </div>
     </header>
- 
-
-    <h2>Cadastro de Produto</h2>
-    <a href="lista.html"><button>Lista de Produtos</button></a>
-    <div class="container" id="formContainer">
-        <form id="productForm">
-            <label>Nome do Produto:</label>
-            <input type="text" id="name" required><br><br>
-            
-            <label>Descrição:</label>
-            <input type="text" id="description" required><br><br>
-            
-            <label>Valor:</label>
-            <input type="number" id="price" required><br><br>
-            
-            <label>Disponível para venda:</label>
-            <select id="available">
-                <option value="Sim">Sim</option>
-                <option value="Não">Não</option>
-            </select><br><br>
-            
-            <button type="submit">Cadastrar</button>
-        </form>
+    
+    <div class="list-container" id="listContainer">
+        <h2>Lista de Produtos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody id="productList"></tbody>
+        </table>
+        <a href="index.html"><button>Cadastrar Novo Produto</button></a>
     </div>
 
 

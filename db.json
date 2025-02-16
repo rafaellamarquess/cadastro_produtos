@@ -1,3 +1,28 @@
 {
-    "products": []
-  }  
+  "products": [
+    {
+      "id": "3907",
+      "name": "PlayStation 5",
+      "description": "Console de última geração da Sony, com gráficos 4K, SSD ultrarrápido e compatibilidade com jogos do PS4. Oferece uma experiência imersiva com seu controle DualSense.",
+      "price": 4500
+    },
+    {
+      "id": "ae61",
+      "name": "Xbox",
+      "description": "Xbox é uma marca de consoles de jogos eletrônicos desenvolvida e patenteada pela Microsoft.",
+      "price": 4000
+    },
+    {
+      "id": "38c2",
+      "name": "Nintendo Switch",
+      "description": "O Nintendo Switch é um console de jogos portátil e doméstico que pode ser usado em três modos: TV, semiportátil e portátil. Ele tem uma tela tátil e controles adaptáveis chamados Joy-Con.",
+      "price": 2500
+    },
+    {
+      "id": "1f54",
+      "name": "ANBERNIC RG556",
+      "description": "Console portátil com tela de 3,5 polegadas, sistema operacional Linux, compatível com jogos de várias plataformas retro, como NES, SNES, PlayStation e outros. Equipado com controles físicos e uma bateria de longa duração, ideal para gamers que gostam de reviver clássicos em qualquer lugar.",
+      "price": 1074
+    }
+  ]
+}
