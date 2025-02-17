@@ -17,7 +17,7 @@ Este é um projeto simples de cadastro e exibição de produtos, desenvolvido co
    ```bash
    npm install -g json-server
 
-  Ou dentro do diretório do projeto executando:
+  Ou dentro do diretório do projeto, executando:
 
     npm install json-server
 
