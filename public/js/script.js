@@ -36,7 +36,6 @@ if (document.getElementById("productList")) {
         fetch(apiURL)
             .then(response => response.json())
             .then(data => {
-                // Ordena os produtos do menor para o maior preço
                 data.sort((a, b) => a.price - b.price);
 
                 const productList = document.getElementById("productList");
