@@ -1,4 +1,4 @@
-const apiURL = 'http://localhost:3001/api/products';  // A API agora está rodando na porta 3001 com o prefixo '/api'
+const apiURL = 'http://localhost:3001/products';
 
 // Cadastro de Produto
 if (document.getElementById("productForm")) {
