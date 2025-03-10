@@ -23,4 +23,4 @@ Este é um projeto simples de cadastro e exibição de produtos, desenvolvido co
 
 2. No terminal, dentro da pasta do projeto, execute:
    ```bash
-   json-server --watch db.json --port 3000
+   json-server --watch db.json --port 3001
