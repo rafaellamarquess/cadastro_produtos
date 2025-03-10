@@ -1,19 +1,12 @@
-const express = require("express");
-const jsonServer = require("json-server");
-const path = require("path");
+import express from "express";
 
+
+const { static: serveStatic } = express;
 const app = express();
-const apiServer = jsonServer.create();
-const router = jsonServer.router("db.json");
-const middlewares = jsonServer.defaults();
+const DIR = './public';
+const PORT = 3001;
 
-app.use(express.static(path.join(__dirname, "public")));
 
-apiServer.use(middlewares);
-apiServer.use(router);
-app.use("/api", apiServer);
 
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
-});
+app.use(serveStatic(DIR));
+app.listen(PORT, () => console.log('Servidor rodando em' + PORT));

@@ -1,4 +1,4 @@
-const apiURL = 'http://localhost:3000/products';
+const apiURL = 'http://localhost:3001/api/products';  // A API agora está rodando na porta 3001 com o prefixo '/api'
 
 // Cadastro de Produto
 if (document.getElementById("productForm")) {
@@ -23,7 +23,6 @@ if (document.getElementById("productForm")) {
         .then(data => {
             console.log('Produto adicionado:', data);
             document.getElementById("productForm").reset();
-            // Redirecionar para a página de lista após o cadastro
             window.location.href = "lista.html";
         })
         .catch(error => console.error('Erro ao adicionar produto:', error));
